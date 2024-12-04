@@ -21,14 +21,14 @@ const services = [
     description: "Quick fixes for various household issues",
     icon: Wrench,
     price: "from $59",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    image: "https://images.unsplash.com/photo-1581141849291-1125c7b692b5",
   },
   {
     title: "Installation Services",
     description: "Installation of various household items",
     icon: Hammer,
     price: "from $49",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea",
   },
 ];
 
