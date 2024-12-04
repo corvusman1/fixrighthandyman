@@ -2,9 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import { Calendar } from "@/components/ui/calendar";
+import { useState } from "react";
 
 export const ContactForm = () => {
   const { toast } = useToast();
+  const [date, setDate] = useState<Date | undefined>(undefined);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,6 +35,16 @@ export const ContactForm = () => {
           <div>
             <label className="block text-sm font-medium mb-2">Email</label>
             <Input type="email" placeholder="Your email" required />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">Preferred Date</label>
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              className="rounded-md border"
+              disabled={(date) => date < new Date()}
+            />
           </div>
           <div>
             <label className="block text-sm font-medium mb-2">Message</label>
