@@ -7,24 +7,28 @@ const services = [
     description: "Professional TV mounting service for all types of walls",
     icon: Tv,
     price: "from $79",
+    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334",
   },
   {
     title: "Furniture Assembly",
     description: "Expert assembly of all types of furniture",
     icon: PackageOpen,
     price: "from $69",
+    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
   },
   {
     title: "General Repairs",
     description: "Quick fixes for various household issues",
     icon: Wrench,
     price: "from $59",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
   },
   {
     title: "Installation Services",
     description: "Installation of various household items",
     icon: Hammer,
     price: "from $49",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
   },
 ];
 
@@ -35,11 +39,21 @@ export const Services = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
-            <Card key={service.title} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-primary" />
+            <Card key={service.title} className="hover:shadow-lg transition-shadow overflow-hidden">
+              <div className="relative h-48">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute top-4 left-4">
+                  <div className="w-12 h-12 bg-white/90 rounded-lg flex items-center justify-center">
+                    <service.icon className="w-6 h-6 text-primary" />
+                  </div>
                 </div>
+              </div>
+              <CardHeader>
                 <CardTitle>{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
