@@ -1,4 +1,4 @@
-import { Tv, PackageOpen, Wrench, Tool } from "lucide-react";
+import { Tv, PackageOpen, Wrench, Hammer } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
@@ -23,7 +23,7 @@ const services = [
   {
     title: "Installation Services",
     description: "Installation of various household items",
-    icon: Tool,
+    icon: Hammer,
     price: "from $49",
   },
 ];
