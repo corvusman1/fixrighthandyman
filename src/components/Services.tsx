@@ -14,7 +14,7 @@ const services = [
     description: "Expert assembly of all types of furniture",
     icon: PackageOpen,
     price: "from $69",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+    image: "https://images.unsplash.com/photo-1581141849291-1125c7b692b5",
   },
   {
     title: "General Repairs",

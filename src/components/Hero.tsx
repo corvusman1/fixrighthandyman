@@ -5,7 +5,7 @@ export const Hero = () => {
     <div className="relative bg-accent py-24 sm:py-32">
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1721322800607-8c38375eef04"
+          src="https://images.unsplash.com/photo-1581141849291-1125c7b692b5"
           alt="Handyman Services"
           className="w-full h-full object-cover opacity-20"
         />
