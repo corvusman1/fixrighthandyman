@@ -20,14 +20,23 @@ export const ContactForm = () => {
     });
   };
 
-  // Generate time slots from 9 AM to 5 PM
-  const timeSlots = Array.from({ length: 17 }, (_, i) => {
-    const hour = Math.floor(i / 2) + 9;
-    const minute = i % 2 === 0 ? "00" : "30";
-    const ampm = hour >= 12 ? "PM" : "AM";
-    const hour12 = hour > 12 ? hour - 12 : hour;
-    return `${hour12}:${minute} ${ampm}`;
-  });
+  // Generate time slots from 9 AM to 5 PM with 30-minute intervals
+  const generateTimeSlots = () => {
+    const slots = [];
+    for (let hour = 9; hour <= 17; hour++) {
+      for (let minute of ['00', '30']) {
+        // Skip 5:30 PM slot
+        if (hour === 17 && minute === '30') continue;
+        
+        const ampm = hour >= 12 ? 'PM' : 'AM';
+        const hour12 = hour > 12 ? hour - 12 : hour;
+        slots.push(`${hour12}:${minute} ${ampm}`);
+      }
+    }
+    return slots;
+  };
+
+  const timeSlots = generateTimeSlots();
 
   return (
     <div className="py-24 bg-white">
@@ -79,7 +88,7 @@ export const ContactForm = () => {
             <div>
               <label className="block text-sm font-medium mb-2">Preferred Time</label>
               <Select value={time} onValueChange={setTime}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a time" />
                 </SelectTrigger>
                 <SelectContent>
