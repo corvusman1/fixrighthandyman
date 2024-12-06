@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { Tv, PackageOpen, Wrench, Hammer } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 
 const services = [
