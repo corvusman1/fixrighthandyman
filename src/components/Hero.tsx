@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Tools } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -16,8 +16,8 @@ export const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-secondary" />
-              <a href="mailto:info@fixitfriends.com" className="text-sm hover:text-secondary">
-                info@fixitfriends.com
+              <a href="mailto:info@fixright.com" className="text-sm hover:text-secondary">
+                info@fixright.com
               </a>
             </div>
           </div>
@@ -36,6 +36,13 @@ export const Hero = () => {
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="text-center">
+            {/* Logo */}
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <Tools className="h-12 w-12 text-secondary" />
+              <div className="text-4xl font-bold text-secondary">
+                Fix<span className="text-primary">Right</span>
+              </div>
+            </div>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
               Professional Handyman Services
             </h1>
