@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, Tools } from "lucide-react";
+import { Phone, Mail, Wrench } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -38,7 +38,7 @@ export const Hero = () => {
           <div className="text-center">
             {/* Logo */}
             <div className="flex items-center justify-center gap-2 mb-8">
-              <Tools className="h-12 w-12 text-secondary" />
+              <Wrench className="h-12 w-12 text-secondary" />
               <div className="text-4xl font-bold text-secondary">
                 Fix<span className="text-primary">Right</span>
               </div>
