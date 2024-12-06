@@ -47,8 +47,8 @@ export const ContactForm = () => {
         <div className="flex justify-center gap-8 mb-8">
           <div className="flex items-center gap-2">
             <Phone className="h-5 w-5 text-secondary" />
-            <a href="tel:+1234567890" className="hover:text-secondary">
-              (123) 456-7890
+            <a href="tel:+19494096450" className="hover:text-secondary">
+              (949) 409-6450
             </a>
           </div>
           <div className="flex items-center gap-2">

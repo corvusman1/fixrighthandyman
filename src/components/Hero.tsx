@@ -10,14 +10,14 @@ export const Hero = () => {
           <div className="flex justify-center md:justify-end gap-8">
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-secondary" />
-              <a href="tel:+1234567890" className="text-sm hover:text-secondary">
-                (123) 456-7890
+              <a href="tel:+19494096450" className="text-sm hover:text-secondary">
+                (949) 409-6450
               </a>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-secondary" />
-              <a href="mailto:info@fixright.com" className="text-sm hover:text-secondary">
-                info@fixright.com
+              <a href="mailto:info@fixitfriends.com" className="text-sm hover:text-secondary">
+                info@fixitfriends.com
               </a>
             </div>
           </div>
