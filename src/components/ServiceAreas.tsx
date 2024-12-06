@@ -9,12 +9,12 @@ const areas = [
   {
     name: "Orange County",
     description: "Coverage throughout OC including Irvine, Newport Beach, and Anaheim",
-    image: "https://images.unsplash.com/photo-1590585976433-2beb2fea3b13",
+    image: "https://images.unsplash.com/photo-1564391058619-5ef7ece89529", // Newport Beach pier
   },
   {
     name: "San Diego",
     description: "From La Jolla to Downtown and everywhere in between",
-    image: "https://images.unsplash.com/photo-1566353820592-c81f362cbd46",
+    image: "https://images.unsplash.com/photo-1538097304804-2a1b932466a9", // San Diego skyline
   },
 ];
 

@@ -5,17 +5,17 @@ export const Hero = () => {
   return (
     <div className="relative bg-accent">
       {/* Contact Bar */}
-      <div className="bg-background/90 py-2">
+      <div className="bg-background/90 py-3">
         <div className="container mx-auto px-4">
           <div className="flex justify-center md:justify-end gap-8">
             <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-secondary" />
-              <a href="tel:+19494096450" className="text-sm hover:text-secondary">
+              <Phone className="h-5 w-5 text-secondary" />
+              <a href="tel:+19494096450" className="text-lg font-semibold hover:text-secondary transition-colors">
                 (949) 409-6450
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-secondary" />
+              <Mail className="h-5 w-5 text-secondary" />
               <a href="mailto:info@fixitfriends.com" className="text-sm hover:text-secondary">
                 info@fixitfriends.com
               </a>
@@ -36,7 +36,6 @@ export const Hero = () => {
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="text-center">
-            {/* Logo */}
             <div className="flex items-center justify-center gap-2 mb-8">
               <Wrench className="h-12 w-12 text-secondary" />
               <div className="text-4xl font-bold text-secondary">
@@ -50,9 +49,11 @@ export const Hero = () => {
               Expert TV mounting, furniture assembly, and more. Quality service guaranteed.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90">
-                Book Now
-              </Button>
+              <a href="tel:+19494096450">
+                <Button size="lg" className="bg-secondary hover:bg-secondary/90">
+                  Call Now
+                </Button>
+              </a>
               <Button variant="outline" size="lg">
                 View Services
               </Button>
