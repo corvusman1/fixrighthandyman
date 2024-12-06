@@ -4,17 +4,17 @@ const areas = [
   {
     name: "Los Angeles",
     description: "Serving all of LA County including Downtown, Hollywood, and the Valley",
-    image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0",
+    image: "https://images.unsplash.com/photo-1515896769750-31548aa180ed", // Downtown LA skyline
   },
   {
     name: "Orange County",
     description: "Coverage throughout OC including Irvine, Newport Beach, and Anaheim",
-    image: "https://images.unsplash.com/photo-1564391058619-5ef7ece89529", // Newport Beach pier
+    image: "https://images.unsplash.com/photo-1617150119111-09bbb85178b0", // Newport Beach pier
   },
   {
     name: "San Diego",
     description: "From La Jolla to Downtown and everywhere in between",
-    image: "https://images.unsplash.com/photo-1538097304804-2a1b932466a9", // San Diego skyline
+    image: "https://images.unsplash.com/photo-1566353820592-c81f362cbd46", // San Diego skyline
   },
 ];
 

@@ -9,8 +9,8 @@ export const Hero = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-center md:justify-end gap-8">
             <div className="flex items-center gap-2">
-              <Phone className="h-5 w-5 text-secondary" />
-              <a href="tel:+19494096450" className="text-lg font-semibold hover:text-secondary transition-colors">
+              <Phone className="h-6 w-6 text-secondary" />
+              <a href="tel:+19494096450" className="text-xl font-bold hover:text-secondary transition-colors">
                 (949) 409-6450
               </a>
             </div>
@@ -54,9 +54,6 @@ export const Hero = () => {
                   Call Now
                 </Button>
               </a>
-              <Button variant="outline" size="lg">
-                View Services
-              </Button>
             </div>
           </div>
         </div>

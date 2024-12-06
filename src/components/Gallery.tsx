@@ -3,34 +3,29 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const galleryImages = [
   {
-    url: "https://images.unsplash.com/photo-1593784991095-a205069470b6",
+    url: "/lovable-uploads/9643c678-0bfc-442e-a631-3a673bac146d.png",
     title: "TV Mounting",
     category: "TV Installation"
   },
   {
-    url: "https://images.unsplash.com/photo-1615876234886-fd9a39fda97f",
-    title: "Professional TV Setup",
+    url: "/lovable-uploads/35271171-bdd1-4f40-80dd-b94f58b7a365.png",
+    title: "TV and Sound Bar Installation",
     category: "TV Installation"
   },
   {
-    url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
-    title: "Furniture Assembly",
+    url: "/lovable-uploads/2bde28bd-a359-4e65-9ad3-78eb0c60da3f.png",
+    title: "Bedroom Furniture Assembly",
     category: "Furniture Assembly"
   },
   {
-    url: "https://images.unsplash.com/photo-1595428774223-ef52624120d2",
-    title: "Office Desk Assembly",
-    category: "Furniture Assembly"
+    url: "/lovable-uploads/5dcb4c6c-cbcb-429a-9c97-9fc1caa3b587.png",
+    title: "Garage Storage Installation",
+    category: "Installation Services"
   },
   {
-    url: "https://images.unsplash.com/photo-1545454675-3531b543be5d",
-    title: "TV Wall Mount",
-    category: "TV Installation"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
-    title: "Modern Furniture Setup",
-    category: "Furniture Assembly"
+    url: "/lovable-uploads/806ebba4-28bc-4402-a406-a40035c076a8.png",
+    title: "Door Installation",
+    category: "General Repairs"
   }
 ];
 

@@ -9,7 +9,7 @@ const services = [
     description: "Professional TV mounting service for all types of walls",
     icon: Tv,
     price: "from $79",
-    image: "https://images.unsplash.com/photo-1593784991095-a205069470b6",
+    image: "/lovable-uploads/9643c678-0bfc-442e-a631-3a673bac146d.png",
     subcategories: ["TV Wall Mount Installation", "TV Setup & Calibration", "Cable Management", "Sound System Setup"]
   },
   {
@@ -17,7 +17,7 @@ const services = [
     description: "Expert assembly of all types of furniture",
     icon: PackageOpen,
     price: "from $69",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+    image: "/lovable-uploads/2bde28bd-a359-4e65-9ad3-78eb0c60da3f.png",
     subcategories: ["IKEA Furniture", "Office Furniture", "Bedroom Sets", "Outdoor Furniture"]
   },
   {
@@ -25,7 +25,7 @@ const services = [
     description: "Quick fixes for various household issues",
     icon: Wrench,
     price: "from $69",
-    image: "https://images.unsplash.com/photo-1581141849291-1125c7b692b5",
+    image: "/lovable-uploads/806ebba4-28bc-4402-a406-a40035c076a8.png",
     subcategories: ["Door Repairs", "Drywall Repairs", "Cabinet Hardware", "Minor Plumbing"]
   },
   {
@@ -33,9 +33,9 @@ const services = [
     description: "Installation of various household items",
     icon: Hammer,
     price: "from $69",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+    image: "/lovable-uploads/5dcb4c6c-cbcb-429a-9c97-9fc1caa3b587.png",
     subcategories: ["Shelving Installation", "Mirror Mounting", "Light Fixture Installation", "Door Installation"]
-  },
+  }
 ];
 
 export const Services = () => {
