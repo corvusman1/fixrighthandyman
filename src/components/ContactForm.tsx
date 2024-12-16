@@ -20,14 +20,11 @@ export const ContactForm = () => {
     });
   };
 
-  // Generate time slots from 9 AM to 5 PM with 30-minute intervals
   const generateTimeSlots = () => {
     const slots = [];
     for (let hour = 9; hour <= 17; hour++) {
       for (let minute of ['00', '30']) {
-        // Skip 5:30 PM slot
         if (hour === 17 && minute === '30') continue;
-        
         const ampm = hour >= 12 ? 'PM' : 'AM';
         const hour12 = hour > 12 ? hour - 12 : hour;
         slots.push(`${hour12}:${minute} ${ampm}`);
@@ -46,8 +43,8 @@ export const ContactForm = () => {
         {/* Contact Information */}
         <div className="flex justify-center gap-8 mb-8">
           <div className="flex items-center gap-2">
-            <Phone className="h-5 w-5 text-secondary" />
-            <a href="tel:+19494096450" className="hover:text-secondary">
+            <Phone className="h-6 w-6 text-secondary" />
+            <a href="tel:+19494096450" className="text-xl font-bold hover:text-secondary transition-colors">
               (949) 409-6450
             </a>
           </div>
@@ -88,12 +85,16 @@ export const ContactForm = () => {
             <div>
               <label className="block text-sm font-medium mb-2">Preferred Time</label>
               <Select value={time} onValueChange={setTime}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full bg-white">
                   <SelectValue placeholder="Select a time" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-white border shadow-lg">
                   {timeSlots.map((slot) => (
-                    <SelectItem key={slot} value={slot}>
+                    <SelectItem 
+                      key={slot} 
+                      value={slot}
+                      className="hover:bg-gray-100"
+                    >
                       {slot}
                     </SelectItem>
                   ))}
