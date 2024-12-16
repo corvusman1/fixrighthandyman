@@ -4,17 +4,17 @@ const areas = [
   {
     name: "Uptown Charlotte",
     description: "Serving the heart of Charlotte including Trade & Tryon, First Ward, and Fourth Ward",
-    image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b", // Charlotte skyline
+    image: "https://images.unsplash.com/photo-1611578735000-6c5f7ca16b86", // Beautiful shot of Charlotte skyline at sunset
   },
   {
     name: "South Charlotte",
     description: "Coverage throughout Ballantyne, SouthPark, and Myers Park",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625", // Modern buildings
+    image: "https://images.unsplash.com/photo-1567198602547-c29f8cd7dbe3", // SouthPark area with modern architecture
   },
   {
     name: "Lake Norman Area",
     description: "Serving Huntersville, Cornelius, and Davidson",
-    image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833", // Lake area buildings
+    image: "https://images.unsplash.com/photo-1505232530843-7e94d7faac25", // Beautiful Lake Norman waterfront
   },
 ];
 
