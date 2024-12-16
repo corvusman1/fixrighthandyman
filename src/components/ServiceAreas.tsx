@@ -2,19 +2,19 @@ import { MapPin } from "lucide-react";
 
 const areas = [
   {
-    name: "Los Angeles",
-    description: "Serving all of LA County including Downtown, Hollywood, and the Valley",
-    image: "https://images.unsplash.com/photo-1515896769750-31548aa180ed", // Downtown LA skyline
+    name: "Uptown Charlotte",
+    description: "Serving the heart of Charlotte including Trade & Tryon, First Ward, and Fourth Ward",
+    image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b", // Charlotte skyline
   },
   {
-    name: "Orange County",
-    description: "Coverage throughout OC including Irvine, Newport Beach, and Anaheim",
-    image: "https://images.unsplash.com/photo-1617150119111-09bbb85178b0", // Newport Beach pier
+    name: "South Charlotte",
+    description: "Coverage throughout Ballantyne, SouthPark, and Myers Park",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625", // Modern buildings
   },
   {
-    name: "San Diego",
-    description: "From La Jolla to Downtown and everywhere in between",
-    image: "https://images.unsplash.com/photo-1566353820592-c81f362cbd46", // San Diego skyline
+    name: "Lake Norman Area",
+    description: "Serving Huntersville, Cornelius, and Davidson",
+    image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833", // Lake area buildings
   },
 ];
 

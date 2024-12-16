@@ -28,8 +28,8 @@ export const Hero = () => {
       <div className="py-24 sm:py-32">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1581141849291-1125c7b692b5"
-            alt="Handyman Services"
+            src="https://images.unsplash.com/photo-1460574283810-2aab119d8511"
+            alt="Charlotte Handyman Services"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/70" />
@@ -43,10 +43,10 @@ export const Hero = () => {
               </div>
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-              Professional Handyman Services
+              Charlotte's Professional Handyman Services
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Expert TV mounting, furniture assembly, and more. Quality service guaranteed.
+              Expert TV mounting, furniture assembly, and more in Charlotte, NC. Quality service guaranteed.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a href="tel:+19494096450">
