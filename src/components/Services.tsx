@@ -76,6 +76,7 @@ export const Services = () => {
                       <Link
                         key={subcategory}
                         to="contact"
+                        spy={true}
                         smooth={true}
                         duration={500}
                         className="block p-2 text-sm text-gray-700 hover:bg-gray-100 rounded cursor-pointer"
