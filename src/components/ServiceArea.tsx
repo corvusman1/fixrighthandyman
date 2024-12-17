@@ -1,4 +1,5 @@
 import { MapPin } from "lucide-react";
+import { memo } from "react";
 
 interface ServiceAreaProps {
   name: string;
@@ -6,21 +7,28 @@ interface ServiceAreaProps {
   image: string;
 }
 
-export const ServiceArea = ({ name, description, image }: ServiceAreaProps) => {
+export const ServiceArea = memo(({ name, description, image }: ServiceAreaProps) => {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg">
+    <div 
+      className="relative group overflow-hidden rounded-lg shadow-lg h-64"
+      role="region"
+      aria-label={`Service area: ${name}`}
+    >
       <img
         src={image}
-        alt={name}
-        className="w-full h-64 object-cover transition-transform group-hover:scale-105"
+        alt={`${name} area`}
+        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
       />
-      <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-6">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/40 flex flex-col justify-end p-6">
         <div className="flex items-center gap-2 text-white mb-2">
-          <MapPin className="w-5 h-5" />
+          <MapPin className="w-5 h-5 flex-shrink-0" />
           <h3 className="text-xl font-semibold">{name}</h3>
         </div>
-        <p className="text-white/90 text-sm">{description}</p>
+        <p className="text-white/90 text-sm leading-relaxed">{description}</p>
       </div>
     </div>
   );
-};
+});
+
+ServiceArea.displayName = "ServiceArea";
