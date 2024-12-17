@@ -8,7 +8,7 @@ const services = [
     title: "TV Mounting",
     description: "Professional TV mounting service for all types of walls",
     icon: Tv,
-    price: "from $79",
+    price: "from $89",
     image: "/lovable-uploads/9643c678-0bfc-442e-a631-3a673bac146d.png",
     subcategories: ["TV Wall Mount Installation", "TV Setup & Calibration", "Cable Management", "Sound System Setup"]
   },
@@ -16,7 +16,7 @@ const services = [
     title: "Furniture Assembly",
     description: "Expert assembly of all types of furniture",
     icon: PackageOpen,
-    price: "from $69",
+    price: "$50/hour",
     image: "/lovable-uploads/2bde28bd-a359-4e65-9ad3-78eb0c60da3f.png",
     subcategories: ["IKEA Furniture", "Office Furniture", "Bedroom Sets", "Outdoor Furniture"]
   },
@@ -24,7 +24,7 @@ const services = [
     title: "General Repairs",
     description: "Quick fixes for various household issues",
     icon: Wrench,
-    price: "from $69",
+    price: "$50/hour",
     image: "/lovable-uploads/806ebba4-28bc-4402-a406-a40035c076a8.png",
     subcategories: ["Door Repairs", "Drywall Repairs", "Cabinet Hardware", "Minor Plumbing"]
   },
@@ -32,7 +32,7 @@ const services = [
     title: "Installation Services",
     description: "Installation of various household items",
     icon: Hammer,
-    price: "from $69",
+    price: "$50/hour",
     image: "/lovable-uploads/5dcb4c6c-cbcb-429a-9c97-9fc1caa3b587.png",
     subcategories: ["Shelving Installation", "Mirror Mounting", "Light Fixture Installation", "Door Installation"]
   }
