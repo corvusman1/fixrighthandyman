@@ -38,10 +38,11 @@ export const ServiceAreas = () => {
         <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
           <MapContainer 
             style={{ height: '100%', width: '100%' }}
-            scrollWheelZoom={false}
             className="z-0"
-            zoom={10}
             center={defaultCenter}
+            zoom={10}
+            zoomControl={true}
+            doubleClickZoom={true}
           >
             <TileLayer 
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
