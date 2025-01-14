@@ -1,7 +1,7 @@
 import { ServiceArea } from "./ServiceArea";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Icon, LatLngExpression } from 'leaflet';
+import { LatLngExpression } from 'leaflet';
 import { useState } from 'react';
 
 const areas = [
@@ -27,7 +27,7 @@ const areas = [
 
 export const ServiceAreas = () => {
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
-  const defaultCenter: LatLngExpression = [35.2271, -80.8431]; // Charlotte center
+  const defaultCenter: LatLngExpression = [35.2271, -80.8431];
 
   return (
     <section className="py-24 bg-accent" id="service-areas">
@@ -37,11 +37,11 @@ export const ServiceAreas = () => {
         {/* Map Section */}
         <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
           <MapContainer 
-            center={defaultCenter}
             style={{ height: '100%', width: '100%' }}
             scrollWheelZoom={false}
             className="z-0"
-            defaultZoom={10}
+            zoom={10}
+            center={defaultCenter}
           >
             <TileLayer 
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
