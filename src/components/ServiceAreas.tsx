@@ -3,6 +3,15 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LatLngExpression } from 'leaflet';
 import { useState } from 'react';
+import L from 'leaflet';
+
+// Fix Leaflet default marker icon issue
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
 
 const areas = [
   {
@@ -27,24 +36,22 @@ const areas = [
 
 export const ServiceAreas = () => {
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
-  const defaultCenter: LatLngExpression = [35.2271, -80.8431];
+  const defaultPosition: LatLngExpression = [35.2271, -80.8431];
 
   return (
     <section className="py-24 bg-accent" id="service-areas">
       <div className="container">
         <h2 className="text-3xl font-bold text-center mb-12">Areas We Serve</h2>
         
-        {/* Map Section */}
         <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
           <MapContainer 
+            center={defaultPosition}
+            zoom={10}
             style={{ height: '100%', width: '100%' }}
             className="z-0"
-            center={defaultCenter}
-            zoom={10}
-            zoomControl={true}
-            doubleClickZoom={true}
           >
             <TileLayer 
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {areas.map((area) => (
@@ -64,7 +71,6 @@ export const ServiceAreas = () => {
           </MapContainer>
         </div>
 
-        {/* Service Areas Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {areas.map((area) => (
             <ServiceArea 
