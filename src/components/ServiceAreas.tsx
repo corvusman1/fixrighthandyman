@@ -36,7 +36,7 @@ const areas = [
 
 export const ServiceAreas = () => {
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
-  const defaultPosition: LatLngExpression = [35.2271, -80.8431];
+  const center: LatLngExpression = [35.2271, -80.8431];
 
   return (
     <section className="py-24 bg-accent" id="service-areas">
@@ -45,8 +45,8 @@ export const ServiceAreas = () => {
         
         <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
           <MapContainer 
-            defaultCenter={defaultPosition}
-            defaultZoom={10}
+            center={center}
+            zoom={10}
             style={{ height: '100%', width: '100%' }}
           >
             <TileLayer
