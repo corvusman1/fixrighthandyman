@@ -45,13 +45,12 @@ export const ServiceAreas = () => {
         
         <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
           <MapContainer 
-            center={defaultPosition as LatLngExpression}
+            center={defaultPosition}
             zoom={10}
             style={{ height: '100%', width: '100%' }}
             className="z-0"
           >
-            <TileLayer 
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {areas.map((area) => (
