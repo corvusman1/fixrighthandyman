@@ -1,5 +1,7 @@
 import { ServiceArea } from "./ServiceArea";
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import { Icon } from 'leaflet';
 import { useState } from 'react';
 
 const areas = [
@@ -23,61 +25,20 @@ const areas = [
   },
 ];
 
-const mapContainerStyle = {
-  width: '100%',
-  height: '400px'
-};
-
-const center = {
-  lat: 35.2271,
-  lng: -80.8431
-};
-
-const googleMapsApiKey = localStorage.getItem('GOOGLE_MAPS_API_KEY') || '';
+// Fix for the default marker icon in react-leaflet
+const defaultIcon = new Icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
 export const ServiceAreas = () => {
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
-  const [showApiKeyInput, setShowApiKeyInput] = useState(!googleMapsApiKey);
-
-  const handleApiKeySubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const apiKey = formData.get('apiKey') as string;
-    localStorage.setItem('GOOGLE_MAPS_API_KEY', apiKey);
-    setShowApiKeyInput(false);
-  };
-
-  if (showApiKeyInput) {
-    return (
-      <section className="py-24 bg-accent" id="service-areas">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Areas We Serve</h2>
-          <div className="max-w-md mx-auto">
-            <form onSubmit={handleApiKeySubmit} className="space-y-4">
-              <div>
-                <label htmlFor="apiKey" className="block text-sm font-medium mb-2">
-                  Enter Google Maps API Key
-                </label>
-                <input
-                  type="text"
-                  id="apiKey"
-                  name="apiKey"
-                  className="w-full p-2 border rounded"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary/90"
-              >
-                Save API Key
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const center = { lat: 35.2271, lng: -80.8431 }; // Charlotte center
 
   return (
     <section className="py-24 bg-accent" id="service-areas">
@@ -85,23 +46,32 @@ export const ServiceAreas = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Areas We Serve</h2>
         
         {/* Map Section */}
-        <div className="mb-12 rounded-lg overflow-hidden shadow-lg">
-          <LoadScript googleMapsApiKey={googleMapsApiKey}>
-            <GoogleMap
-              mapContainerStyle={mapContainerStyle}
-              zoom={10}
-              center={center}
-            >
-              {areas.map((area) => (
-                <Marker
-                  key={area.name}
-                  position={area.position}
-                  onClick={() => setSelectedArea(area.name)}
-                  title={area.name}
-                />
-              ))}
-            </GoogleMap>
-          </LoadScript>
+        <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
+          <MapContainer 
+            center={[center.lat, center.lng]} 
+            zoom={10} 
+            style={{ height: '100%', width: '100%' }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {areas.map((area) => (
+              <Marker 
+                key={area.name}
+                position={[area.position.lat, area.position.lng]}
+                icon={defaultIcon}
+                eventHandlers={{
+                  click: () => setSelectedArea(area.name),
+                }}
+              >
+                <Popup>
+                  <div className="font-semibold">{area.name}</div>
+                  <div className="text-sm">{area.description}</div>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
         </div>
 
         {/* Service Areas Grid */}
