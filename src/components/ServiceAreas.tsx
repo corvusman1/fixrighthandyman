@@ -1,58 +1,32 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import { ServiceArea } from "./ServiceArea";
 
-// Fix Leaflet default marker icon issue
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-});
-
-const serviceLocations = [
-  { name: "Downtown", position: [34.0522, -118.2437] },
-  { name: "Beverly Hills", position: [34.0736, -118.4004] },
-  { name: "Santa Monica", position: [34.0195, -118.4912] },
+const areas = [
+  {
+    name: "Uptown Charlotte",
+    description: "Serving the heart of Charlotte including Trade & Tryon, First Ward, and Fourth Ward",
+    image: "https://images.unsplash.com/photo-1611605645802-c21be743c321?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    name: "South Charlotte",
+    description: "Coverage throughout Ballantyne, SouthPark, and Myers Park",
+    image: "https://images.unsplash.com/photo-1578762356925-f72517ce6dc4?q=80&w=2069&auto=format&fit=crop",
+  },
+  {
+    name: "Lake Norman Area",
+    description: "Serving Huntersville, Cornelius, and Davidson",
+    image: "https://images.unsplash.com/photo-1572731422118-f4b3183fe1fa?q=80&w=2074&auto=format&fit=crop",
+  },
 ];
 
 export const ServiceAreas = () => {
   return (
-    <section className="py-16 bg-accent">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Service Areas</h2>
-        <div className="grid grid-cols-1 gap-8">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <div style={{ height: "500px", width: "100%" }}>
-              <MapContainer
-                center={[34.0522, -118.2437]}
-                zoom={11}
-                style={{ height: "100%", width: "100%" }}
-              >
-                <TileLayer
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
-                {serviceLocations.map((location, index) => (
-                  <Marker key={index} position={location.position as [number, number]}>
-                    <Popup>{location.name}</Popup>
-                  </Marker>
-                ))}
-              </MapContainer>
-            </div>
-            <div className="mt-8">
-              <h3 className="text-2xl font-semibold mb-4">Areas We Serve</h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {serviceLocations.map((location, index) => (
-                  <li key={index} className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-primary rounded-full"></span>
-                    <span>{location.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <section className="py-24 bg-accent" id="service-areas">
+      <div className="container">
+        <h2 className="text-3xl font-bold text-center mb-12">Areas We Serve</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {areas.map((area) => (
+            <ServiceArea key={area.name} {...area} />
+          ))}
         </div>
       </div>
     </section>
