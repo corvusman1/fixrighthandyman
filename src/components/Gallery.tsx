@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, memo } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const galleryImages = [
@@ -29,6 +29,49 @@ const galleryImages = [
   }
 ];
 
+const GalleryImage = memo(({ image, index, onClick }: { 
+  image: typeof galleryImages[0], 
+  index: number, 
+  onClick: (index: number) => void 
+}) => (
+  <div
+    className="relative aspect-video cursor-pointer group"
+    onClick={() => onClick(index)}
+  >
+    <img
+      src={image.url}
+      alt={image.title}
+      className="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
+      loading="lazy"
+    />
+    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+      <div className="absolute bottom-4 left-4 text-white">
+        <h3 className="text-lg font-semibold">{image.title}</h3>
+        <p className="text-sm">{image.category}</p>
+      </div>
+    </div>
+  </div>
+));
+
+GalleryImage.displayName = "GalleryImage";
+
+const FilterButton = memo(({ active, onClick, children }: {
+  active: boolean,
+  onClick: () => void,
+  children: React.ReactNode
+}) => (
+  <button
+    onClick={onClick}
+    className={`px-4 py-2 rounded-full transition-colors ${
+      active ? 'bg-primary text-white' : 'bg-gray-100 hover:bg-gray-200'
+    }`}
+  >
+    {children}
+  </button>
+));
+
+FilterButton.displayName = "FilterButton";
+
 export const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [filter, setFilter] = useState<string | null>(null);
@@ -37,92 +80,80 @@ export const Gallery = () => {
     ? galleryImages.filter(img => img.category === filter)
     : galleryImages;
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setSelectedImage(current => 
       current === 0 ? filteredImages.length - 1 : current! - 1
     );
-  };
+  }, [filteredImages.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setSelectedImage(current => 
       current === filteredImages.length - 1 ? 0 : current! + 1
     );
-  };
+  }, [filteredImages.length]);
+
+  const handleFilterChange = useCallback((newFilter: string | null) => {
+    setFilter(newFilter);
+    setSelectedImage(null);
+  }, []);
 
   return (
     <div className="py-24 bg-white" id="gallery">
       <div className="container">
         <h2 className="text-3xl font-bold text-center mb-12">Our Work</h2>
         
-        {/* Filter Buttons */}
         <div className="flex justify-center gap-4 mb-8">
-          <button
-            onClick={() => setFilter(null)}
-            className={`px-4 py-2 rounded-full ${
-              filter === null ? 'bg-primary text-white' : 'bg-gray-100'
-            }`}
+          <FilterButton
+            active={filter === null}
+            onClick={() => handleFilterChange(null)}
           >
             All
-          </button>
-          <button
-            onClick={() => setFilter('TV Installation')}
-            className={`px-4 py-2 rounded-full ${
-              filter === 'TV Installation' ? 'bg-primary text-white' : 'bg-gray-100'
-            }`}
+          </FilterButton>
+          <FilterButton
+            active={filter === 'TV Installation'}
+            onClick={() => handleFilterChange('TV Installation')}
           >
             TV Installation
-          </button>
-          <button
-            onClick={() => setFilter('Furniture Assembly')}
-            className={`px-4 py-2 rounded-full ${
-              filter === 'Furniture Assembly' ? 'bg-primary text-white' : 'bg-gray-100'
-            }`}
+          </FilterButton>
+          <FilterButton
+            active={filter === 'Furniture Assembly'}
+            onClick={() => handleFilterChange('Furniture Assembly')}
           >
             Furniture Assembly
-          </button>
+          </FilterButton>
         </div>
 
-        {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredImages.map((image, index) => (
-            <div
+            <GalleryImage
               key={image.url}
-              className="relative aspect-video cursor-pointer group"
-              onClick={() => setSelectedImage(index)}
-            >
-              <img
-                src={image.url}
-                alt={image.title}
-                className="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-lg font-semibold">{image.title}</h3>
-                  <p className="text-sm">{image.category}</p>
-                </div>
-              </div>
-            </div>
+              image={image}
+              index={index}
+              onClick={setSelectedImage}
+            />
           ))}
         </div>
 
-        {/* Modal */}
         {selectedImage !== null && (
           <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-4 right-4 text-white hover:text-gray-300"
+              aria-label="Close gallery"
             >
               <X className="w-8 h-8" />
             </button>
             <button
               onClick={handlePrevious}
               className="absolute left-4 text-white hover:text-gray-300"
+              aria-label="Previous image"
             >
               <ChevronLeft className="w-8 h-8" />
             </button>
             <button
               onClick={handleNext}
               className="absolute right-4 text-white hover:text-gray-300"
+              aria-label="Next image"
             >
               <ChevronRight className="w-8 h-8" />
             </button>
