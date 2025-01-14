@@ -37,12 +37,15 @@ export const ServiceAreas = () => {
         {/* Map Section */}
         <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
           <MapContainer 
+            center={defaultCenter}
             style={{ height: '100%', width: '100%' }}
-            zoom={10}
             scrollWheelZoom={false}
             className="z-0"
+            defaultZoom={10}
           >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <TileLayer 
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
             {areas.map((area) => (
               <Marker 
                 key={area.name}
