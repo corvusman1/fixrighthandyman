@@ -33,8 +33,51 @@ const center = {
   lng: -80.8431
 };
 
+const googleMapsApiKey = localStorage.getItem('GOOGLE_MAPS_API_KEY') || '';
+
 export const ServiceAreas = () => {
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
+  const [showApiKeyInput, setShowApiKeyInput] = useState(!googleMapsApiKey);
+
+  const handleApiKeySubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const apiKey = formData.get('apiKey') as string;
+    localStorage.setItem('GOOGLE_MAPS_API_KEY', apiKey);
+    setShowApiKeyInput(false);
+  };
+
+  if (showApiKeyInput) {
+    return (
+      <section className="py-24 bg-accent" id="service-areas">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-12">Areas We Serve</h2>
+          <div className="max-w-md mx-auto">
+            <form onSubmit={handleApiKeySubmit} className="space-y-4">
+              <div>
+                <label htmlFor="apiKey" className="block text-sm font-medium mb-2">
+                  Enter Google Maps API Key
+                </label>
+                <input
+                  type="text"
+                  id="apiKey"
+                  name="apiKey"
+                  className="w-full p-2 border rounded"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary/90"
+              >
+                Save API Key
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-24 bg-accent" id="service-areas">
@@ -43,7 +86,7 @@ export const ServiceAreas = () => {
         
         {/* Map Section */}
         <div className="mb-12 rounded-lg overflow-hidden shadow-lg">
-          <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+          <LoadScript googleMapsApiKey={googleMapsApiKey}>
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               zoom={10}
