@@ -16,8 +16,8 @@ export const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-5 w-5 text-secondary" />
-              <a href="mailto:info@fixitfriends.com" className="text-sm hover:text-secondary">
-                info@fixitfriends.com
+              <a href="mailto:fixrighthandyman@gmail.com" className="text-sm hover:text-secondary">
+                fixrighthandyman@gmail.com
               </a>
             </div>
           </div>

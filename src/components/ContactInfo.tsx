@@ -11,8 +11,8 @@ export const ContactInfo = () => {
       </div>
       <div className="flex items-center gap-2">
         <Mail className="h-5 w-5 text-secondary" />
-        <a href="mailto:info@fixitfriends.com" className="hover:text-secondary">
-          info@fixitfriends.com
+        <a href="mailto:fixrighthandyman@gmail.com" className="hover:text-secondary">
+          fixrighthandyman@gmail.com
         </a>
       </div>
     </div>
