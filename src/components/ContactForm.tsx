@@ -16,32 +16,50 @@ export const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Format the date for email
     const formattedDate = date ? date.toLocaleDateString() : 'Not specified';
-
-    // Create email body
-    const emailBody = `
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Preferred Date: ${formattedDate}
-Preferred Time: ${time || 'Not specified'}
-Message: ${message}
-    `.trim();
-
-    // Create mailto link
-    const mailtoLink = `mailto:FixRightHandy@gmail.com?subject=New Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
     
-    // Open email client
-    window.location.href = mailtoLink;
+    try {
+      const response = await fetch('https://formspree.io/f/FixRightHandy@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          preferredDate: formattedDate,
+          preferredTime: time || 'Not specified',
+          message
+        })
+      });
 
-    toast({
-      title: "Email Client Opened",
-      description: "Please send the email to complete your request.",
-    });
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent. We'll get back to you soon!",
+        });
+        // Clear form
+        setName("");
+        setPhone("");
+        setEmail("");
+        setDate(undefined);
+        setTime("");
+        setMessage("");
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
