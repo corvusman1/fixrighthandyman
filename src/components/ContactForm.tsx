@@ -23,7 +23,7 @@ export const ContactForm = () => {
     const formattedDate = date ? date.toLocaleDateString() : 'Not specified';
     
     try {
-      const response = await fetch('https://formspree.io/f/FixRightHandy@gmail.com', {
+      const response = await fetch('https://formspree.io/f/xqkornbv', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
